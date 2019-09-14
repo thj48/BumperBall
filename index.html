@@ -7,17 +7,20 @@
 
 <body onload="startGame()">
 
-	<h1>This is a Heading</h1>
-	<p>This is a paragraph.</p>
+	<h1>BLocks Falling Screensaver</h1>
+	<p>Intial block falling bouncy ball game</p>
 
 </body>
 
 
 <script>
-var gamePieces = [
-	new component(30, 30, "red", 80, 75),
-    new component(30, 30, "yellow", 120, 90)
-	];
+  //Componenet layout width, height, color, x, y, type
+var gp1 = new component(30, 30, "red", 80, 120);
+var gp2 = new component(30, 30, "blue", 120, 75); 
+var gp3 = new component(30, 30, "blue",  175, 0); 
+
+
+var gamePieces = [gp1,gp2];
 
 function startGame(){
     myGameArea.start();
@@ -28,11 +31,18 @@ function updateGameArea() {
     this.updatePieces();
 }
 
-function updatePieces(value) {
-	for(var curr in gamePieces){
-		curr.newPos();
-		curr.update();
-	}
+function updatePieces() {
+  gp1.newPos();
+  gp2.newPos();
+  gp3.newPos();
+  gp1.update();
+  gp2.update();
+  gp3.update();
+
+	//for(var curr in gamePieces){
+	//	curr.newPos();
+	//	curr.update();
+	//}
 }
 
 
