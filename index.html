@@ -17,10 +17,10 @@
   //Componenet layout width, height, color, x, y, type
 var gp1 = new component(30, 30, "red", 80, 120);
 var gp2 = new component(30, 30, "blue", 120, 75); 
-var gp3 = new component(30, 30, "blue",  175, 0); 
+var gp3 = new component(30, 30, "pink",  175, 270); //How to get bottom of canvas for y value
 
 
-var gamePieces = [gp1,gp2];
+var gamePieces = [gp1,gp2,gp3];
 
 function startGame(){
     myGameArea.start();
@@ -32,17 +32,10 @@ function updateGameArea() {
 }
 
 function updatePieces() {
-  gp1.newPos();
-  gp2.newPos();
-  gp3.newPos();
-  gp1.update();
-  gp2.update();
-  gp3.update();
-
-	//for(var curr in gamePieces){
-	//	curr.newPos();
-	//	curr.update();
-	//}
+  gamePieces.forEach(function(item){
+    item.newPos();
+    item.update();
+  });
 }
 
 
